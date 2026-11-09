@@ -61,31 +61,51 @@ var currentAuthor = "";
 var randomquote = "";
 var color = "#000000";
 
+// Put this line near the top of script.js (outside any function)
+var recentIndexes = [];
+
 function getQuote() {
-	randomquote = Math.floor(Math.random() * quotes.length);
-	randomcolor = Math.floor(Math.random() * colors.length);
+    var randomquote;
+    var minDistance = 10; 
+    var maxHistory = Math.min(minDistance, quotes.length - 1);
+
+    // Pick a random index that isn't in recent history
+    do {
+        randomquote = Math.floor(Math.random() * quotes.length);
+    } while (recentIndexes.includes(randomquote));
+
+    // Push new quote into history
+    recentIndexes.push(randomquote);
+
+    // Forget the oldest quote once history exceeds limit
+    if (recentIndexes.length > maxHistory) {
+        recentIndexes.shift();
+    }
+
+    randomcolor = Math.floor(Math.random() * colors.length);
     currentQuote = quotes[randomquote][0];
     currentAuthor = quotes[randomquote][1];
-	if (inIframe()) {
-		$('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
-	}
 
-	$(document).ready(function () {
-	    $('html body').animate({
-	        backgroundColor: colors[randomcolor],
-	        color: colors[randomcolor]
-	    }, 500);
-	    $('#newquote, .social-icons .fa-twitter').animate({ backgroundColor: colors[randomcolor] }, 500);
-			$('blockquote footer').animate({ color: colors[randomcolor] }, 500);	
-	    $('blockquote').animate({ borderLeftColor: colors[randomcolor] }, 500);
-	    $('#quotetext').animate({ opacity: 0 }, 500, function () {
-	        $(this).animate({ opacity: 1 }, 500);
-	        $(this).text(currentQuote);
-	    });
-	    $('#quotesource').animate({ opacity: 0 }, 500, function () {
-	        $(this).animate({ opacity: 1 }, 500);
-	        $(this).text(currentAuthor);
-	    });
+    if (inIframe()) {
+        $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
+    }
+
+    $(document).ready(function () {
+        $('html body').animate({
+            backgroundColor: colors[randomcolor],
+            color: colors[randomcolor]
+        }, 500);
+        $('#newquote, .social-icons .fa-twitter').animate({ backgroundColor: colors[randomcolor] }, 500);
+        $('blockquote footer').animate({ color: colors[randomcolor] }, 500);    
+        $('blockquote').animate({ borderLeftColor: colors[randomcolor] }, 500);
+        $('#quotetext').animate({ opacity: 0 }, 500, function () {
+            $(this).animate({ opacity: 1 }, 500);
+            $(this).text(currentQuote);
+        });
+        $('#quotesource').animate({ opacity: 0 }, 500, function () {
+            $(this).animate({ opacity: 1 }, 500);
+            $(this).text(currentAuthor);
+        });
     });    
 }
 

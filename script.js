@@ -53,6 +53,7 @@ var quotes = [
 	["The greasy fry could tell no lie; it brands its emblem on your thigh.","Nobody"],
 	["The stomach growls equal the fat's eviction.","Alexandria"],
 	["I know the hunger hurts deliciously, nourish it further.","Alexandria"],
+	["The best anorexics are dead.","Nobody"],
   ];
  
 

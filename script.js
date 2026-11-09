@@ -36,6 +36,23 @@ var quotes = [
   ["When you're not hungry, you eat because your mouth is lonely.","Japanese proverb"],
   ["Your ancestors should be proud of your restraint. They ate little by necessity, and you eat little by choice. You leave them your excess food spiritually to nourish their ghosts.","Alexandria"],
   ["Whether gluttony is a deadly sin is of course for the religious to decide, and I hope they go easy on the foodies; they're not all bad. They are certainly single-minded, however, and single-mindedness—even in less obviously selfish forms—is always a littleness of soul.","B.R. Myers"],
+  ["The corruption begins with the mouth, the tongue, the wanting. The first poem in the world is I want to eat.","Erica Jong"],
+["Hungry to bed and hungry to rise makes a girl the smaller size.","Nobody"],
+	["Hungry to bed and hungry to rise makes a man the smaller size.","Nobody"],
+	["Burn and become.","Nobody"],
+	["You're no dog. Don't reward yourself with food.","Nobody"],
+	["If I can't be the pretty one, I ought to be the skinny one...","Nobody"],
+	["They say these words are a spell: 'a second for the lips is a lifetime to the hips.'","Nobody"],
+	["What you eat in private you wear in public.","Nobody"],
+	["Dear, if you can't control what you give your mouth, what can you?","Nobody"],
+	["Choose: be a snack or have one.","Nobody"],
+	["Should I gain control, I lose weight. If I lose control, I gain it.","Nobody"],
+	["Suffer discipline or suffer regret.","Nobody"],
+	["Fat's flame goes longer than flavor's ever could.","Nobody"],
+	["The food sitting in your house would rather not be eaten.","Alexandria"],
+	["The greasy fry could tell no lie; it brands its emblem on your thigh.","Nobody"],
+	["The stomach growls equal the fat's eviction.","Alexandria"],
+	["I know the hunger hurts deliciously, nourish it further.","Alexandria"],
   ];
  
 

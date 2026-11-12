@@ -54,6 +54,7 @@ var quotes = [
 	["The stomach growls equal the fat's eviction.","Alexandria"],
 	["I know the hunger hurts deliciously, nourish it further.","Alexandria"],
 	["The best anorexics are dead.","Nobody"],
+	["Shh, it's okay, as long as you can tame your hunger. This, the only thing you need to be beautiful. Aren't you in love already with the gravity of a famished stomach? Do I not nourish you by giving you only the best and few? Can you deny that it feels like every hour a meal is put off you are rewarded? Could you deny that you feel accomplished and smug by the evening when you've eaten half the calories you by biology should've?","Anorexia"],
   ];
  
 

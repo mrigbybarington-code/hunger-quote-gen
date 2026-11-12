@@ -6,10 +6,10 @@ function inIframe() {
     }
 }
 
-		var colors = [
-			'#000000',
+        var colors = [
+            '#000000',
 
-		];
+        ];
 
 var quotes = [
     ["Yes, some people say to me you're too skinny, but never a skinny person says that to me, only people who could lose a few pounds say that.","Karl Lagerfeld"],
@@ -38,23 +38,23 @@ var quotes = [
   ["Whether gluttony is a deadly sin is of course for the religious to decide, and I hope they go easy on the foodies; they're not all bad. They are certainly single-minded, however, and single-mindedness—even in less obviously selfish forms—is always a littleness of soul.","B.R. Myers"],
   ["The corruption begins with the mouth, the tongue, the wanting. The first poem in the world is I want to eat.","Erica Jong"],
 ["Hungry to bed and hungry to rise makes a girl the smaller size.","Nobody"],
-	["Hungry to bed and hungry to rise makes a man the smaller size.","Nobody"],
-	["Burn and become.","Nobody"],
-	["You're no dog. Don't reward yourself with food.","Nobody"],
-	["If I can't be the pretty one, I ought to be the skinny one...","Nobody"],
-	["They say these words are a spell: 'a second for the lips is a lifetime to the hips.'","Nobody"],
-	["What you eat in private you wear in public.","Nobody"],
-	["Dear, if you can't control what you give your mouth, what can you?","Nobody"],
-	["Choose: be a snack or have one.","Nobody"],
-	["Should I gain control, I lose weight. If I lose control, I gain it.","Nobody"],
-	["Suffer discipline or suffer regret.","Nobody"],
-	["Fat's flame goes longer than flavor's ever could.","Nobody"],
-	["The food sitting in your house would rather not be eaten.","Alexandria"],
-	["The greasy fry could tell no lie; it brands its emblem on your thigh.","Nobody"],
-	["The stomach growls equal the fat's eviction.","Alexandria"],
-	["I know the hunger hurts deliciously, nourish it further.","Alexandria"],
-	["The best anorexics are dead.","Nobody"],
-	["Shh, it's okay, as long as you can tame your hunger. This, the only thing you need to be beautiful. Aren't you in love already with the gravity of a famished stomach? Do I not nourish you by giving you only the best and few? Can you deny that it feels like every hour a meal is put off you are rewarded? Could you deny that you feel accomplished and smug by the evening when you've eaten half the calories you by biology should've?","Anorexia"],
+    ["Hungry to bed and hungry to rise makes a man the smaller size.","Nobody"],
+    ["Burn and become.","Nobody"],
+    ["You're no dog. Don't reward yourself with food.","Nobody"],
+    ["If I can't be the pretty one, I ought to be the skinny one...","Nobody"],
+    ["They say these words are a spell: 'a second for the lips is a lifetime to the hips.'","Nobody"],
+    ["What you eat in private you wear in public.","Nobody"],
+    ["Dear, if you can't control what you give your mouth, what can you?","Nobody"],
+    ["Choose: be a snack or have one.","Nobody"],
+    ["Should I gain control, I lose weight. If I lose control, I gain it.","Nobody"],
+    ["Suffer discipline or suffer regret.","Nobody"],
+    ["Fat's flame goes longer than flavor's ever could.","Nobody"],
+    ["The food sitting in your house would rather not be eaten.","Alexandria"],
+    ["The greasy fry could tell no lie; it brands its emblem on your thigh.","Nobody"],
+    ["The stomach growls equal the fat's eviction.","Alexandria"],
+    ["I know the hunger hurts deliciously, nourish it further.","Alexandria"],
+    ["The best anorexics are dead.","Nobody"],
+    ["Shh, it's okay, as long as you can tame your hunger. This, the only thing you need to be beautiful. Aren't you in love already with the gravity of a famished stomach? Do I not nourish you by giving you only the best and few? Can you deny that it feels like every hour a meal is put off you are rewarded? Could you deny that you feel accomplished and smug by the evening when you've eaten half the calories you by biology should've?","Anorexia"],
   ];
  
 
@@ -63,26 +63,22 @@ var currentAuthor = "";
 var randomquote = "";
 var color = "#000000";
 
-// Put this line near the top of script.js (outside any function)
-var recentIndexes = [];
+var quoteDeck = [];
 
 function getQuote() {
-    var randomquote;
-    var minDistance = 10; 
-    var maxHistory = Math.min(minDistance, quotes.length - 1);
-
-    // Pick a random index that isn't in recent history
-    do {
-        randomquote = Math.floor(Math.random() * quotes.length);
-    } while (recentIndexes.includes(randomquote));
-
-    // Push new quote into history
-    recentIndexes.push(randomquote);
-
-    // Forget the oldest quote once history exceeds limit
-    if (recentIndexes.length > maxHistory) {
-        recentIndexes.shift();
+    if (quoteDeck.length === 0) {
+        for (var i = 0; i < quotes.length; i++) {
+            quoteDeck.push(i);
+        }
+        for (var i = quoteDeck.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = quoteDeck[i];
+            quoteDeck[i] = quoteDeck[j];
+            quoteDeck[j] = temp;
+        }
     }
+
+    randomquote = quoteDeck.pop();
 
     randomcolor = Math.floor(Math.random() * colors.length);
     currentQuote = quotes[randomquote][0];
